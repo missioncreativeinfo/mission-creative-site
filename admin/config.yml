@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: missioncreativeinfo/mission-creative-site
-  branch: main
+  branch: main  base_url: https://api.netlify.com
   # L'authentification GitHub devra être configurée lors du raccordement Netlify.
 
 media_folder: "uploads"
