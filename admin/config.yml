@@ -1,9 +1,8 @@
 backend:
   name: github
   repo: missioncreativeinfo/mission-creative-site
-  branch: main 
+  branch: main
   base_url: https://api.netlify.com
-  # L'authentification GitHub devra être configurée lors du raccordement Netlify.
 
 media_folder: "uploads"
 public_folder: "/uploads"
@@ -29,12 +28,17 @@ collections:
               - label: "Catégorie"
                 name: "category"
                 widget: "select"
-                options: ["Jeux express", "Activités thématiques", "Outils du quotidien"]
+                options:
+                  - "Jeux express"
+                  - "Activités thématiques"
+                  - "Outils du quotidien"
               - { label: "Prix (ex. 4,00 $)", name: "price", widget: "string", required: false }
               - { label: "Image du produit", name: "image", widget: "image", required: false }
               - { label: "Fichier PDF", name: "pdf", widget: "file", required: false }
               - { label: "Afficher sur le site", name: "published", widget: "boolean", default: true }
-              abel: "Textes du site"
+
+  - name: "contenu"
+    label: "Textes du site"
     files:
       - name: "textes"
         label: "Modifier les textes"
