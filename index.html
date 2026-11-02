@@ -87,9 +87,9 @@
   <main>
     <section class="hero" id="accueil">
       <div>
-        <span class="eyebrow">🌈 Pour les éducatrices créatives</span>
-        <h1>Des idées qui font <span class="highlight">grandir</span> les petits esprits&nbsp;!</h1>
-        <p>Des jeux, des activités et des outils pédagogiques pensés pour rendre vos journées plus simples, joyeuses et inspirantes.</p>
+        <span class="eyebrow" id="accueil-surtitre">🌈 Pour les éducatrices créatives</span>
+        <h1 id="accueil-titre">Des idées qui font <span class="highlight">grandir</span> les petits esprits&nbsp;!</h1>
+        <p id="accueil-description">Des jeux, des activités et des outils pédagogiques pensés pour rendre vos journées plus simples, joyeuses et inspirantes.</p>
         <div class="buttons">
           <a class="btn primary" href="#documents">🎨 Découvrir mes documents</a>
           <a class="btn secondary" href="#contact">💌 Me contacter</a>
@@ -104,12 +104,12 @@
     <section class="section alt" id="documents">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">✂️ La boîte à idées</span>
-          <h2>Mes documents</h2>
-          <p>Des ressources faciles à utiliser pour mettre un peu de magie dans le quotidien du service de garde.</p>
+          <span class="eyebrow" id="accueil-surtitre">✂️ La boîte à idées</span>
+          <h2 id="boutique-titre">Mes documents</h2>
+          <p id="accueil-description">Des ressources faciles à utiliser pour mettre un peu de magie dans le quotidien du service de garde.</p>
         </div>
         <div class="cards" id="products-grid">
-          <article class="card"><div class="icon">🎨</div><h3>Mes documents arrivent bientôt !</h3><p>Je prépare de jolies ressources pour inspirer vos journées.</p><span class="tag">À découvrir bientôt</span></article>
+          <article class="card"><div class="icon">🎨</div><h3>Mes documents arrivent bientôt !</h3><p id="accueil-description">Je prépare de jolies ressources pour inspirer vos journées.</p><span class="tag">À découvrir bientôt</span></article>
         </div>
         <p class="tiny" style="text-align:center;margin-top:24px">De nouvelles ressources seront ajoutées régulièrement.</p>
       </div>
@@ -119,10 +119,10 @@
       <div class="wrap about">
         <div class="sticker-board"><div><span class="big">🌈✏️🌟</span><strong>La créativité au quotidien</strong><span>Petites idées, grands sourires&nbsp;!</span></div></div>
         <div>
-          <span class="eyebrow">🩷 Bienvenue dans mon univers</span>
-          <h2>Un coup de pouce pour vos journées bien remplies</h2>
-          <p>Mission Créative rassemble des outils prêts à inspirer vos journées : des activités ludiques, des idées simples et des ressources conçues pour accompagner les éducatrices dans leur quotidien.</p>
-          <p>Installez-vous, explorez et trouvez votre prochaine petite mission créative&nbsp;!</p>
+          <span class="eyebrow" id="accueil-surtitre">🩷 Bienvenue dans mon univers</span>
+          <h2 id="apropos-titre">Un coup de pouce pour vos journées bien remplies</h2>
+          <p id="accueil-description">Mission Créative rassemble des outils prêts à inspirer vos journées : des activités ludiques, des idées simples et des ressources conçues pour accompagner les éducatrices dans leur quotidien.</p>
+          <p id="accueil-description">Installez-vous, explorez et trouvez votre prochaine petite mission créative&nbsp;!</p>
         </div>
       </div>
     </section>
@@ -131,9 +131,9 @@
       <div class="wrap">
         <div class="contact-box">
           <div>
-            <span class="eyebrow">💌 Une question ou une idée&nbsp;?</span>
-            <h2>On se parle&nbsp;!</h2>
-            <p>Tu peux ajouter ici ton adresse courriel professionnelle afin que les éducatrices puissent te joindre facilement.</p>
+            <span class="eyebrow" id="accueil-surtitre">💌 Une question ou une idée&nbsp;?</span>
+            <h2 id="contact-titre">On se parle&nbsp;!</h2>
+            <p id="accueil-description">Tu peux ajouter ici ton adresse courriel professionnelle afin que les éducatrices puissent te joindre facilement.</p>
           </div>
           <a class="btn primary" href="mailto:mission.creative.info@gmail.com">Écrire un message ✉️</a>
         </div>
@@ -143,24 +143,60 @@
   </main>
 
   <footer>
-    <strong>Mission Créative</strong> · Des outils prêts à inspirer vos journées 🌼<br>
+    <strong>Mission Créative</strong> ·<span id="pied-slogan">Des outils prêts à inspirer vos journées 🌼</span> Des outils prêts à inspirer vos journées 🌼<br>
     <span class="tiny">© <span id="year"></span> Mission Créative. Tous droits réservés.</span>
   </footer>
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const categoryIcons = {'Jeux express':'🎲','Activités thématiques':'🪄','Outils du quotidien':'🌱'};
-    fetch('data/products.json').then(r => r.ok ? r.json() : []).then(products => {
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  fetch('data/site.json')
+    .then(response => {
+      if (!response.ok) throw new Error('Textes indisponibles');
+      return response.json();
+    })
+    .then(data => {
+      const setText = (id, value) => {
+        const element = document.getElementById(id);
+        if (element && typeof value === 'string') {
+          element.textContent = value;
+        }
+      };
+
+      setText('accueil-surtitre', data.accueil?.surtitre);
+      setText('accueil-titre', data.accueil?.titre);
+      setText('accueil-description', data.accueil?.description);
+      setText('boutique-titre', data.boutique?.titre);
+      setText('boutique-description', data.boutique?.description);
+      setText('apropos-titre', data.apropos?.titre);
+      setText('apropos-paragraphe1', data.apropos?.paragraphe1);
+      setText('apropos-paragraphe2', data.apropos?.paragraphe2);
+      setText('contact-titre', data.contact?.titre);
+      setText('contact-message', data.contact?.message);
+      setText('pied-slogan', data.pied?.slogan);
+    })
+    .catch(error => console.log(error));
+
+  const categoryIcons = {
+    'Jeux express':'🎲',
+    'Activités thématiques':'🪄',
+    'Outils du quotidien':'🌱'
+  };
+
+  fetch('data/products.json')
+    .then(r => r.ok ? r.json() : [])
+    .then(products => {
       const grid = document.getElementById('products-grid');
       const active = (products.items || []).filter(p => p.published !== false);
       if (!active.length) return;
+
       grid.innerHTML = active.map(p => `
         <article class="card product-card">
           ${p.image ? `<img src="${p.image}" alt="${p.title.replace(/"/g,'&quot;')}">` : `<div class="icon">${categoryIcons[p.category] || '🌼'}</div>`}
-          <h3>${p.title}</h3><p>${p.description || ''}</p>
+          <h3>${p.title}</h3>
+          <p>${p.description || ''}</p>
           ${p.price ? `<div class="product-price">${p.price}</div>` : ''}
           ${p.pdf ? `<a class="product-link" href="${p.pdf}" target="_blank" rel="noopener">Voir le document PDF ↗</a>` : '<span class="tag">Bientôt disponible</span>'}
         </article>`).join('');
-    }).catch(() => {});
-  </script>
-</body>
-</html>
+    })
+    .catch(() => {});
+</script>
