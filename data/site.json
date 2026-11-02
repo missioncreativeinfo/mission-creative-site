@@ -1,0 +1,23 @@
+{
+  "accueil": {
+    "surtitre": "🌈 Pour les éducatrices créatives",
+    "titre": "Des idées qui font grandir les petits esprits !",
+    "description": "Des jeux, des activités et des outils pédagogiques pensés pour rendre vos journées plus simples, joyeuses et inspirantes."
+  },
+  "boutique": {
+    "titre": "Mes documents",
+    "description": "Des ressources faciles à utiliser pour mettre un peu de magie dans le quotidien du service de garde."
+  },
+  "apropos": {
+    "titre": "Un coup de pouce pour vos journées bien remplies",
+    "paragraphe1": "Mission Créative rassemble des outils prêts à inspirer vos journées : des activités ludiques, des idées simples et des ressources conçues pour accompagner les éducatrices dans leur quotidien.",
+    "paragraphe2": "Installez-vous, explorez et trouvez votre prochaine petite mission créative !"
+  },
+  "contact": {
+    "titre": "On se parle !",
+    "message": "Tu peux m'écrire à mission.creative.info@gmail.com pour toute question ou idée."
+  },
+  "pied": {
+    "slogan": "Des outils prêts à inspirer vos journées 🌼"
+  }
+}
