@@ -34,3 +34,41 @@ collections:
               - { label: "Image du produit", name: "image", widget: "image", required: false }
               - { label: "Fichier PDF", name: "pdf", widget: "file", required: false }
               - { label: "Afficher sur le site", name: "published", widget: "boolean", default: true }
+              abel: "Textes du site"
+    files:
+      - name: "textes"
+        label: "Modifier les textes"
+        file: "data/site.json"
+        format: "json"
+        fields:
+          - label: "Page d'accueil"
+            name: "accueil"
+            widget: "object"
+            fields:
+              - { label: "Petit texte", name: "surtitre", widget: "string" }
+              - { label: "Titre principal", name: "titre", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Boutique"
+            name: "boutique"
+            widget: "object"
+            fields:
+              - { label: "Titre", name: "titre", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "À propos"
+            name: "apropos"
+            widget: "object"
+            fields:
+              - { label: "Titre", name: "titre", widget: "string" }
+              - { label: "Premier paragraphe", name: "paragraphe1", widget: "text" }
+              - { label: "Deuxième paragraphe", name: "paragraphe2", widget: "text" }
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Titre", name: "titre", widget: "string" }
+              - { label: "Message", name: "message", widget: "text" }
+          - label: "Pied de page"
+            name: "pied"
+            widget: "object"
+            fields:
+              - { label: "Slogan", name: "slogan", widget: "string" }
