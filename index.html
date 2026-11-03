@@ -161,7 +161,6 @@
           element.textContent = value;
         }
       };
-
        setText('accueil-surtitre', data.accueil?.surtitre);
       setText('accueil-titre', data.accueil?.titre);
       setText('accueil-description', data.accueil?.description);
@@ -173,8 +172,6 @@
       setText('contact-titre', data.contact?.titre);
       setText('contact-message', data.contact?.message);
       setText('contact-button', data.contact?.bouton);
-      setText('contact-note', data.contact?.note);
-
 const contactButton = document.getElementById('contact-button');
 if (contactButton && data.contact?.courriel) {
   contactButton.href = 'mailto:' + data.contact.courriel;
