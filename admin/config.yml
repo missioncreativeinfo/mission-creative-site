@@ -71,6 +71,9 @@ collections:
             fields:
               - { label: "Titre", name: "titre", widget: "string" }
               - { label: "Message", name: "message", widget: "text" }
+              - { label: "Texte du bouton", name: "bouton", widget: "string" }
+              - { label: "Texte sous le formulaire", name: "note", widget: "string" }
+              - { label: "Adresse courriel", name: "courriel", widget: "string" }
           - label: "Pied de page"
             name: "pied"
             widget: "object"
