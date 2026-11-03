@@ -13,9 +13,13 @@
     "paragraphe1": "Mission Créative rassemble des outils prêts à inspirer vos journées : des activités ludiques et des idées simples conçues pour accompagner les éducatrices dans leur quotidien.",
     "paragraphe2": "Installez-vous, explorez et trouvez votre prochaine petite mission créative !"
   },
-  "contact": {
+"contact": {
     "titre": "On se parle !",
-    "message": "Tu peux m'écrire à mission.creative.info@gmail.com pour toute question ou idée."
+    "message": "Tu peux ajouter ici ton adresse courriel professionnelle afin que les éducatrices puissent te joindre facilement.",
+    "bouton": "Écrire un message ✉️",
+    "note": "Avant la publication, remplace mission.creative.info@gmail.com par ton adresse courriel.",
+    "courriel": "mission.creative.info@gmail.com"
+  },
   },
   "pied": {
     "slogan": "Des outils prêts à inspirer vos journées 🌼"
