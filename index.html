@@ -172,6 +172,13 @@
       setText('apropos-paragraphe2', data.apropos?.paragraphe2);
       setText('contact-titre', data.contact?.titre);
       setText('contact-message', data.contact?.message);
+      setText('contact-button', data.contact?.bouton);
+setText('contact-note', data.contact?.note);
+
+const contactButton = document.getElementById('contact-button');
+if (contactButton && data.contact?.courriel) {
+  contactButton.href = 'mailto:' + data.contact.courriel;
+}
       setText('pied-slogan', data.pied?.slogan);
     })
     .catch(error => console.log(error));
